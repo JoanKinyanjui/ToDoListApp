@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'toDoListApp/style.css' %}">
+    <body>
+        <h5> TO-DO-LIST-APP</h5>
+        <form action="{% url 'update' task.id %}" method="post">
+            {% csrf_token %}
+  <input type="text" value={{task.task}} name="updatedtask" />
+  <input type="submit" value="save"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'toDoListApp/style.css' %}">
+    <body>
+        <h5> TO-DO-LIST</h5>
+        <ul>
+            {% for x in task %}
+            <li>
+                <form action="{% url 'taskList' %}" class="inline">
+                    <label>{{x.task}} </label>
+                  <button> <a href="{% url 'edit' x.id %}"> Edit</a></button>
+                    <button><a href="{% url 'delete' x.id %}">delete</a></button>
+
+                </form>
+            </li>
+            {% endfor %}
+    </body>
+</html>
